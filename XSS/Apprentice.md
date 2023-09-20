@@ -46,9 +46,15 @@ To solve this problem, two measures can be taken:
 
 **My solution:** `<token>.web-security-academy.net/?search=<img+src+onerror%3Dalert%281%29>`
 
+# [DOM XSS in jQuery anchor `href` attribute sink using `location.search` source](https://portswigger.net/web-security/cross-site-scripting/dom-based/lab-jquery-href-attribute-sink)
 
+The vulnerability is found in the generation of the link to return to the previous page, where it is done by JQuery. There is an open redirect vulnerability here, but this is not what the lab asks for.
+To be able to pull cookies in this challenge, it is necessary to use `javascript:` and the desired function, which in this case was `alert(document.cookie)`.
+To fix this vulnerability you need to protect this field.
 
+**Type:** DOM-Base
 
+**My Solution:** `<token><token>.web-security-academy.net/feedback?returnPath=javascript:alert(document.cookie)`
 
 
 
